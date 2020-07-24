@@ -16,6 +16,31 @@ $query_mutasi = "SELECT COUNT(*) AS total FROM mutasi";
 $hasil_mutasi = mysqli_query($db, $query_mutasi);
 $jumlah_mutasi = mysqli_fetch_assoc($hasil_mutasi);
 
+// hitung iuran
+$query_total_iuran = "SELECT COUNT(*) AS total FROM iuran WHERE iuran.uang_masuk > 0";
+$hasil_total_iuran = mysqli_query($db, $query_total_iuran);
+$jumlah_total_iuran = mysqli_fetch_assoc($hasil_total_iuran);
+
+// hitung data iuran
+$query_data_iuran = "SELECT COUNT(*) AS total FROM iuran";
+$hasil_data_iuran = mysqli_query($db, $query_data_iuran);
+$jumlah_data_iuran = mysqli_fetch_assoc($hasil_data_iuran);
+
+// hitung total uang masuk
+$query_iuran_masuk = "SELECT SUM(uang_masuk) AS total FROM iuran";
+$hasil_iuran_masuk = mysqli_query($db, $query_iuran_masuk);
+$jumlah_iuran_masuk = mysqli_fetch_assoc($hasil_iuran_masuk);
+
+// hitung total uang keluar
+$query_iuran_keluar = "SELECT SUM(uang_keluar) AS total FROM iuran";
+$hasil_iuran_keluar = mysqli_query($db, $query_iuran_keluar);
+$jumlah_iuran_keluar = mysqli_fetch_assoc($hasil_iuran_keluar);
+
+// hitung total sisa_uang
+$query_iuran_sisa_uang = "SELECT SUM(sisa_uang) AS total FROM iuran";
+$hasil_iuran_sisa_uang = mysqli_query($db, $query_iuran_sisa_uang);
+$jumlah_iuran_sisa_uang = mysqli_fetch_assoc($hasil_iuran_sisa_uang);
+
 // hitung warga laki-laki
 $query_warga_l = "SELECT COUNT(*) AS total FROM warga WHERE jenis_kelamin_warga = 'L'";
 $hasil_warga_l = mysqli_query($db, $query_warga_l);

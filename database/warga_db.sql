@@ -159,6 +159,41 @@ CREATE TABLE `warga` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `iuran`
+--
+
+CREATE TABLE `iuran` (
+  `id_iuran` int(11) NOT NULL,
+  `uang_masuk` int(30) NOT NULL,
+  `uang_keluar` int(30) NOT NULL,
+  `sisa_uang` int(30) NOT NULL,
+  `nik_warga` varchar(16) NOT NULL,
+  `nama_warga` varchar(45) NOT NULL,
+  `tempat_lahir_warga` varchar(30) NOT NULL,
+  `tanggal_lahir_warga` date NOT NULL,
+  `jenis_kelamin_warga` enum('L','P') NOT NULL,
+  `alamat_ktp_warga` text NOT NULL,
+  `alamat_warga` text NOT NULL,
+  `desa_kelurahan_warga` varchar(30) NOT NULL,
+  `kecamatan_warga` varchar(30) NOT NULL,
+  `kabupaten_kota_warga` varchar(30) NOT NULL,
+  `provinsi_warga` varchar(30) NOT NULL,
+  `negara_warga` varchar(30) NOT NULL,
+  `rt_warga` varchar(3) NOT NULL,
+  `rw_warga` varchar(3) NOT NULL,
+  `agama_warga` enum('Islam','Kristen','Katholik','Hindu','Budha','Konghucu') NOT NULL,
+  `pendidikan_terakhir_warga` varchar(20) NOT NULL,
+  `pekerjaan_warga` varchar(20) NOT NULL,
+  `status_perkawinan_warga` enum('Kawin','Tidak Kawin') NOT NULL,
+  `status_warga` enum('Tetap','Kontrak') NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `warga_has_kartu_keluarga`
 --
 
@@ -207,6 +242,13 @@ ALTER TABLE `warga`
   ADD KEY `id_user` (`id_user`);
 
 --
+-- Indexes for table `iuran`
+--
+ALTER TABLE `iuran`
+  ADD PRIMARY KEY (`id_iuran`),
+  ADD KEY `id_user` (`id_user`);
+
+--
 -- Indexes for table `warga_has_kartu_keluarga`
 --
 ALTER TABLE `warga_has_kartu_keluarga`
@@ -243,6 +285,11 @@ ALTER TABLE `user`
 ALTER TABLE `warga`
   MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `iuran`
+--
+ALTER TABLE `iuran`
+  MODIFY `id_iuran` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- Constraints for dumped tables
 --
 
@@ -270,6 +317,12 @@ ALTER TABLE `mutasi`
 --
 ALTER TABLE `warga`
   ADD CONSTRAINT `warga_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+
+--
+-- Constraints for table `iuran`
+--
+ALTER TABLE `iuran`
+  ADD CONSTRAINT `iuran_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 
 --
 -- Constraints for table `warga_has_kartu_keluarga`

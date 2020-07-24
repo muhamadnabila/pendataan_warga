@@ -56,6 +56,26 @@
       </div>
     </div>
   </div>
+  
+  <div class="col-sm-6 col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-body">
+        <h3>Data Iuran</h3>
+        <p>
+          Total ada <?php echo $jumlah_data_iuran['total'] ?> data iuran warga.
+        </p>
+        <p>
+          <?php echo $jumlah_data_iuran['total']-$jumlah_total_iuran['total'] ?> di antaranya belum ada iuran masuk, dan
+          <?php echo $jumlah_total_iuran['total'] ?> di antaranya sudah ada iuran masuk.
+        </p>
+      </div>
+      <div class="panel-footer">
+        <a href="../iuran" class="btn btn-primary" role="button">
+          <span class="glyphicon glyphicon-export"></span> Detil »
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php include('../_partials/bottom.php') ?>

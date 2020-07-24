@@ -23,6 +23,9 @@ function is_active($page) {
   <li class="<?php is_active('mutasi'); ?>">
     <a href="../mutasi"><i class="glyphicon glyphicon-export"></i> Data Mutasi</a>
   </li>
+  <li class="<?php is_active('iuran'); ?>">
+    <a href="../iuran"><i class="glyphicon glyphicon-export"></i> Data Iuran</a>
+  </li>
 </ul>
 
 <ul class="nav nav-sidebar">
